@@ -36,7 +36,6 @@ struct nodo
 
 typedef struct nodo Nodo;
 
-// Criar nó
 Nodo* create(int valor)
 {
 	Nodo *n = (Nodo*)malloc(sizeof(Nodo));
@@ -46,7 +45,6 @@ Nodo* create(int valor)
 	return n;
 }
 
-// Inserir de forma automatica
 void add(Nodo *n, int valor)
 {
 	if(valor < n->valor)
@@ -65,7 +63,6 @@ void add(Nodo *n, int valor)
 	}
 }
 
-//imprimir em ordem crescente 
 void imprimir(Nodo *n)
 {
 	if(n==NULL) return;		
@@ -73,7 +70,6 @@ void imprimir(Nodo *n)
 	printf("%d ",n->valor);
 	imprimir(n->dir);
 }
-// 6. Imprimir em ordem decrescente (Direita -> Raiz -> Esquerda)
 void imprimir_decrescente(Nodo *n)
 {
     if(n == NULL) return;
@@ -82,7 +78,6 @@ void imprimir_decrescente(Nodo *n)
     imprimir_decrescente(n->esq);
 }
 
-// 7. Retornar 1 se o valor existe, 0 se não existe
 int existe(Nodo *n, int valor)
 {
     if(n == NULL) return 0; 
@@ -95,7 +90,6 @@ int existe(Nodo *n, int valor)
         return existe(n->dir, valor); 
 }
 
-// 8. Retornar a quantidade total de nodos
 int quantidade_nodos(Nodo *n)
 {
     if(n == NULL) return 0;
@@ -103,7 +97,6 @@ int quantidade_nodos(Nodo *n)
     return 1 + quantidade_nodos(n->esq) + quantidade_nodos(n->dir);
 }
 
-// 9. Retornar o maior valor da árvore
 int maior_valor(Nodo *n)
 {
     if(n == NULL) return -1; 
@@ -113,7 +106,6 @@ int maior_valor(Nodo *n)
     return maior_valor(n->dir); 
 }
 
-// 10. Retornar a soma de todos os valores
 int soma(Nodo *n)
 {
     if(n == NULL) return 0;
@@ -121,9 +113,7 @@ int soma(Nodo *n)
     return n->valor + soma(n->esq) + soma(n->dir);
 }
 
-// ==========================================
-// FUNÇÃO MAIN PARA TESTAR TUDO
-// ==========================================
+
 int main(void) {  	
 	Nodo *raiz = create(5);
 	add(raiz, 2);
